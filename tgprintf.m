@@ -30,16 +30,6 @@ sendstr = ['https://api.telegram.org/bot',token,...
            '&text=',sendstr];
 
 % send a message   
-% ret = web(sendstr); 
-
-send a message and check the return status, but too slow
-try
-%     ret = webread(sendstr);
-%     ret = ret.ok;
-catch ret
-    if (strcmp(ret.identifier,'MATLAB:webservices:HTTP400StatusCodeError'))
-        error('failed to send a message: invalid token or chat_id');
-    end
-end
+ret = web(sendstr); 
 
 end
