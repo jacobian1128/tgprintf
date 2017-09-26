@@ -1,11 +1,13 @@
-function ret = tgprintf(str,chat_id,token)
+function ret = tgprintf(varargin)
 % TGPRINTF send a message to a Telegram bot
 %
-% [token,chat_id] = tgprintf(str,token,chat_id) 
-% where token and chat_id are the authorization token of the target 
-% Telegram bot and the identifier or username of the target chat.
-%
+% Use tgprintf() in the same way as sprintf()
 % Example: tgprintf('Hello, World!');
+%          tgprintf('%d + %d = %d',1,2,1+2);
+% 
+% Define token and chat_id before use, 
+% which are the authorization token of the target Telegram bot 
+% and the identifier or username of the target chat
 %
 % Please refer the following post 
 % "Creating a Telegram bot for personal notifications"
@@ -15,12 +17,17 @@ function ret = tgprintf(str,chat_id,token)
 % seongsikpark@postech.ac.kr
 
 % default token and chat_id
-if nargin < 2
-    chat_id = '59233348';
-    token = '430183280:AAEoNtMwQQFxMhE7VP9hwQnHWI-RAtyD9No'; % @tgprintfbot
-elseif nargin < 3
-    token = '430183280:AAEoNtMwQQFxMhE7VP9hwQnHWI-RAtyD9No'; % @tgprintfbot
+token = 'TELEGRAM_BOT_TOKEN_HERE';
+chat_id = 'CHAT_ID_HERE';
+
+if nargin > 1
+str = sprintf(varargin{:});
+else
+    str = varargin{1};
 end
+
+% fprintf(mfilename);
+% fprintf(str);
 
 % convert MATLAB string to url query string
 sendstr = urlencode(str);
