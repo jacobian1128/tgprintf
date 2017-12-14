@@ -3,6 +3,10 @@ TGPRINTF send a message to a Telegram bot from MATLAB
 
 Use tgprintf() in the same way as sprintf().
 
+Screenshot:
+
+![](https://raw.githubusercontent.com/jacobian1128/tgprintf/master/screenshot.png)
+
 Example: 
 
 ```
