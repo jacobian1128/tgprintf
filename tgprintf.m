@@ -17,23 +17,18 @@ function ret = tgprintf(varargin)
 % seongsikpark@postech.ac.kr
 
 % default token and chat_id
-token = 'TELEGRAM_BOT_TOKEN_HERE';
-chat_id = 'CHAT_ID_HERE';
+token = DEFAULT_TOKEN_HERE
+chat_id = DEFAULT_CHAT_ID_HERE;
 
-if nargin > 1
 str = sprintf(varargin{:});
-else
-    str = varargin{1};
-end
 
-% fprintf(mfilename);
-% fprintf(str);
+% print to MATLAB command window
+fprintf(str);
 
 % convert MATLAB string to url query string
 sendstr = urlencode(str);
 sendstr = ['https://api.telegram.org/bot',token,...
            '/sendMessage?chat_id=',chat_id,...
-           '&disable_web_page_preview=1',...
            '&text=',sendstr];
 
 % send a message   
