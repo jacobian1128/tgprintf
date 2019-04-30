@@ -34,4 +34,7 @@ sendstr = ['https://api.telegram.org/bot',token,...
 % send a message   
 ret = webread(sendstr); 
 assert(ret.ok);
+
+% append human readable datetime to results [Set TimeZone value to desired time zone]
+ret.result.datetime=datetime(ret.result.date,'ConvertFrom','posixtime','TimeZone','Asia/Seoul');
 end
