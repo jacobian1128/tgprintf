@@ -32,6 +32,6 @@ sendstr = ['https://api.telegram.org/bot',token,...
            '&text=',sendstr];
 
 % send a message   
-ret = web(sendstr); 
-
+ret = webread(sendstr); 
+assert(ret.ok);
 end
