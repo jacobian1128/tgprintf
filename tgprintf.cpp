@@ -15,11 +15,11 @@ wstring s2ws(const string& s)
 	return r;
 }
 
-void tgprintf(string hello) {
-	string chat_id = "59233348";
-	string token = "430183280:AAEoNtMwQQFxMhE7VP9hwQnHWI-RAtyD9No";
+void tgprintf(string msg) {
+	string chat_id = "DEFAULT_CHAT_ID_HERE";
+	string token = "DEFAULT_TOKEN_HERE";
 	string str = "https://api.telegram.org/bot" + token
-		+ "/sendMessage?chat_id=" + chat_id + "&text=" + hello;
+		+ "/sendMessage?chat_id=" + chat_id + "&text=" + msg;
 	
 	wstring send = s2ws(str);
 	printf("%s", str.c_str());
